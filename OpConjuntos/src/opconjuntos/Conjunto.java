@@ -11,7 +11,7 @@ import java.util.*;
  * @param <E>
  */
 public class Conjunto <E>{
-    private Set<E> java, android, ios;
+    private Set<E> java, android, ios, aux;
     private FactoryHash<E> factory = new FactoryHash<>();
     
     public Conjunto (int n){
@@ -35,7 +35,30 @@ public class Conjunto <E>{
     }
     
     public Set<E> mayor(){
+        if(java.size()>android.size())
+            if(java.size()>ios.size())
+                return java;
+            else
+                return ios;
+        if(android.size()>ios.size())
+            return android;
         return null;
     }
     
+    //Indica la experiencia en java pero no en android
+    public Set<E> ExpJnoA(){
+        aux.clear();
+        aux.addAll(java);
+        aux.removeAll(android);
+        return aux;
+    }
+    
+    // Indica desarrolladores en todas las areas
+    public Set<E> ExpAll(){
+        aux.clear();
+        aux.addAll(java);
+        aux.retainAll(ios);
+        aux.retainAll(android);
+        return aux;
+    }
 }
