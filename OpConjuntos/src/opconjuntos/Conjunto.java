@@ -61,4 +61,23 @@ public class Conjunto <E>{
         aux.retainAll(android);
         return aux;
     }
+    
+    //Experiencia Android Ios pero no java
+    public Set<E> ExpAInoJ(){
+        aux.clear();
+        aux.addAll(ios);
+        aux.retainAll(android);
+        aux.removeAll(java);
+        return aux;
+    }
+    
+    //Experiencia Android O Ios pero no java
+    public Set<E> ExpAoI(){
+        aux.clear();
+        aux.addAll(ios);
+        aux.removeAll(android);
+        aux.addAll(android);
+        aux.removeAll(java);
+        return aux;
+    }
 }
